@@ -5,71 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fsRch</title>
-    <style>
-        :root {
-            --c: #fff;
-            --b: #111;
-            --a: dodgerblue;
-        }
-
-        * {
-            margin: 5px;
-            padding: 5px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: var(--b);
-            color: var(--c);
-            fill: var(--c);
-            border-radius: 0;
-            border: none;
-            outline: none;
-        }
-
-        html {
-            overflow: hidden;
-        }
-
-        .flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .col {
-            flex-direction: column;
-        }
-
-        body {
-            width: 100%;
-            height: 100dvh;
-        }
-
-        input,
-        button {
-            padding: 10px;
-            border: 2px solid var(--a);
-            transition: all 0.3s ease-in-out;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        input:focus,
-        button:hover,
-        .active {
-            background-color: var(--a);
-        }
-
-        ::placeholder {
-            color: var(--c);
-        }
-
-        @media (width < 500px) {
-            .m-col {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="icon" href="logo.png">
+    <meta name="description" content="A searching app">
+    <meta name="image" content="logo.png">
+    <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
 </head>
 
 <body class="flex col">
@@ -85,43 +25,6 @@
     <div id="options" class="flex m-col">
 
     </div>
-    <script>
-        const searchInput = document.querySelector("input")
-        const optionsElement = document.getElementById("options")
-        const submitForm = document.querySelector("form")
-        const currentSearchEngine = localStorage.getItem("c-s-e")
-            || "https://www.startpage.com/search"
-
-        const urls = [
-            ["GOOGLE", "https://www.google.com/search"],
-            ["DUCKDUCKGO", "https://duckduckgo.com/?t=h_&ia=web"],
-            ["BING", "https://www.bing.com/"],
-            ["STARTPAGE", "https://www.startpage.com/search"]
-        ]
-
-        function update() {
-            optionsElement.innerHTML = ""
-            urls.forEach(([name, url]) => {
-                if (currentSearchEngine == url)
-                    submitForm.action = url
-                optionsElement.innerHTML += `<button title='${url}' ${currentSearchEngine == url ? `class="active"` : ""} onclick="goto('${url}')">
-                ${name}
-            </button>`
-            })
-        }
-
-        function goto(base) {
-            localStorage.setItem("c-s-e", base)
-            const url = new URL(base)
-            url.searchParams.set("q", searchInput.value)
-            window.location = url.toString()
-        }
-
-        onblur = () => searchInput.focus()
-
-        update()
-        searchInput.focus()
-    </script>
 </body>
 
 </html>

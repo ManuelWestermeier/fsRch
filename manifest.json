@@ -1,0 +1,15 @@
+{
+    "name": "fsRch",
+    "short_name": "fsRch",
+    "description": "A searching app",
+    "start_url": "/fsRch/",
+    "theme_color": "#111",
+    "background_color": "#111",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "512x512"
+        }
+    ]
+}
