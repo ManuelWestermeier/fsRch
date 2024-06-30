@@ -8,7 +8,10 @@ const urls = [
     ["GOOGLE", "https://www.google.com/search"],
     ["DUCKDUCKGO", "https://duckduckgo.com/?t=h_&ia=web"],
     ["BING", "https://www.bing.com/"],
-    ["STARTPAGE", "https://www.startpage.com/search"]
+    ["STARTPAGE", "https://www.startpage.com/search"],
+    ["YOUTUBE", "https://www.youtube.com/search"],
+    ["TIKTOK", "https://www.tiktok.com/search/user"],
+    ["INSTAGRAMM", "https://www.instagram.com/serach"]
 ]
 
 function update() {
