@@ -52,8 +52,29 @@ button:hover,
     color: var(--c);
 }
 
-@media (width < 500px) {
+@media (width < 700px) {
     .m-col {
         flex-direction: column;
     }
+}
+
+#options {
+    overflow: auto;
+    max-width: 800px;
+    max-height: 30dvh;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--b);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--a);
+    cursor: grab;
 }

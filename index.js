@@ -1,7 +1,7 @@
 const searchInput = document.querySelector("input")
 const optionsElement = document.getElementById("options")
 const submitForm = document.querySelector("form")
-const currentSearchEngine = localStorage.getItem("c-s-e")
+var currentSearchEngine = localStorage.getItem("c-s-e")
     || "https://www.startpage.com/search"
 
 const urls = [
@@ -23,13 +23,18 @@ function update() {
                 ${name}
             </button>`
     })
+    document.querySelector(`.active`).scrollIntoView({ behavior: "smooth", block: "center" })
 }
 
 function goto(base) {
+    currentSearchEngine = base
     localStorage.setItem("c-s-e", base)
+
     const url = new URL(base)
     url.searchParams.set("q", searchInput.value)
     window.location = url.toString()
+
+    update()
 }
 
 update()
