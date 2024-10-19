@@ -43,7 +43,14 @@ update()
 
 searchInput.focus()
 searchInput.value = localStorage.getItem("last-searched") || ""
-searchInput.addEventListener("input", e => localStorage.setItem("last-searched", e.target.value))
+
+searchInput.addEventListener("input", e => {
+    localStorage.setItem("last-searched", e.target.value)
+    document.title = "fsRch | " + searchInput.value
+})
+
 onblur = () => searchInput.focus()
 
 if (url.searchParams.get("q")) searchInput.value = url.searchParams.get("q")
+
+document.title = "fsRch | " + searchInput.value
