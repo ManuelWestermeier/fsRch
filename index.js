@@ -4,6 +4,8 @@ const submitForm = document.querySelector("form")
 var currentSearchEngine = localStorage.getItem("c-s-e")
     || "https://www.startpage.com/search"
 
+const url = new URL(document.location)
+
 const urls = [
     ["GOOGLE", "https://www.google.com/search"],
     ["DUCKDUCKGO", "https://duckduckgo.com/?t=h_&ia=web"],
@@ -43,3 +45,5 @@ searchInput.focus()
 searchInput.value = localStorage.getItem("last-searched") || ""
 searchInput.addEventListener("input", e => localStorage.setItem("last-searched", e.target.value))
 onblur = () => searchInput.focus()
+
+if (url.searchParams.get("q")) searchInput.value = url.searchParams.get("q")
